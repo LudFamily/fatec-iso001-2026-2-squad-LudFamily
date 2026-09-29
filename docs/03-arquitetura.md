@@ -450,6 +450,39 @@ Em períodos de alta demanda, o aumento das requisições pode elevar a utiliza�
 
 O monitoramento da CPU é necessário para identificar possíveis gargalos.
 
+#### 10.2.1 Escalonamento de processos
+
+Quando existem múltiplos processos prontos para utilizar a CPU, o sistema
+operacional precisa administrar a utilização do processador e distribuir
+o tempo de execução entre os processos.
+
+Na LudCommerce, essa situação pode ocorrer durante períodos de alta
+demanda, quando diferentes componentes da solução precisam executar
+atividades simultaneamente.
+
+O escalonador do sistema operacional determina quais processos terão
+oportunidade de utilizar a CPU, considerando as características e a
+prioridade relativa dos processos.
+
+O valor de `nice` permite alterar a prioridade relativa de um processo.
+Valores maiores de `nice` representam menor prioridade relativa.
+
+O comando `renice` permite alterar o valor de `nice` de um processo que
+já está em execução.
+
+Durante os experimentos realizados no ambiente Linux, foram executados
+processos concorrentes para gerar carga de CPU. Foram observados
+processos com `NI=0` e `NI=10`, permitindo comparar processos com
+diferentes prioridades relativas.
+
+O experimento demonstrou que o valor de `nice` influencia a prioridade
+relativa utilizada pelo escalonador, mas não determina uma porcentagem
+fixa de utilização da CPU.
+
+A distribuição do processamento depende da quantidade de processos
+concorrentes, da quantidade de CPUs disponíveis e das condições de
+execução do sistema.
+
 ### 10.3 Memória
 
 A aplicação e os demais serviços utilizam memória durante sua execução.
@@ -463,6 +496,7 @@ O consumo excessivo de memória pode provocar:
 - indisponibilidade da aplicação.
 
 Por esse motivo, a utilização de memória deve ser monitorada e considerada nas decisões de operação.
+
 
 ### 10.4 Sistema de arquivos
 

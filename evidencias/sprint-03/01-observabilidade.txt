@@ -1,0 +1,50 @@
+=== SPRINT 3 - EVIDÊNCIA DE OBSERVABILIDADE ===
+Data da coleta:
+Tue Sep 29 16:33:01 -03 2026
+
+=== UPTIME ===
+ 16:33:01 up 28 min,  1 user,  load average: 0.06, 1.78, 2.10
+
+=== MEMÓRIA ===
+               total        used        free      shared  buff/cache   available
+Mem:           3.8Gi       1.1Gi       1.8Gi       3.4Mi       1.0Gi       2.7Gi
+Swap:          1.0Gi          0B       1.0Gi
+
+=== PROCESSOS / CPU ===
+    PID STAT  NI %CPU %MEM COMMAND
+   6622 D+     0  133  0.1 tee
+   1977 Rl+    0  2.6 11.6 MainThread
+   1899 Sl+    0  0.8  2.9 MainThread
+   2070 Sl+    0  0.3  2.0 MainThread
+   1959 Sl+    0  0.3  3.4 MainThread
+   1989 Sl+    0  0.1  0.9 copilot-runtime
+   1913 Ssl+   0  0.1  1.7 MainThread
+   1928 Ssl+   0  0.1  1.5 MainThread
+      1 Ss     0  0.0  0.3 systemd
+   1912 S      0  0.0  0.0 Relay(1913)
+    145 Ss     0  0.0  0.3 systemd-udevd
+   1927 S      0  0.0  0.0 Relay(1928)
+   1952 Sl+    0  0.0  1.4 MainThread
+   2044 Sl+    0  0.0  1.6 MainThread
+
+=== TOP - COLETA ÚNICA ===
+top - 16:33:02 up 28 min,  1 user,  load average: 0.06, 1.78, 2.10
+Tasks:  46 total,   1 running,  45 sleeping,   0 stopped,   0 zombie
+%Cpu(s): 23.7 us,  0.0 sy,  0.0 ni, 65.8 id, 10.5 wa,  0.0 hi,  0.0 si,  0.0 st
+MiB Mem :   3872.6 total,   1888.8 free,   1117.2 used,   1007.8 buff/cache
+MiB Swap:   1024.0 total,   1024.0 free,      0.0 used.   2755.4 avail Mem
+
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0   24244  15412  11624 S   0.0   0.4   0:01.22 systemd
+      2 root      20   0    3180   2212   2072 S   0.0   0.1   0:00.05 init-sy+
+      6 root      20   0    3180   2040   1940 S   0.0   0.1   0:00.00 init
+     82 root      19  -1   50404  16836  15540 S   0.0   0.4   0:00.22 systemd+
+    132 systemd+  20   0   22416  14496  12008 S   0.0   0.4   0:00.09 systemd+
+    145 root      20   0   35224  12224   9272 S   0.0   0.3   0:00.98 systemd+
+    194 root      20   0    2888   1948   1820 S   0.0   0.0   0:00.04 chronyd+
+    195 root      20   0    4472   3160   2912 S   0.0   0.1   0:00.01 cron
+    196 message+  20   0    8816   5380   4672 S   0.0   0.1   0:00.14 dbus-da+
+    211 root      20   0   44096  29868  14728 S   0.0   0.8   0:00.22 network+
+    216 root      20   0   18556   9464   8160 S   0.0   0.2   0:00.12 systemd+
+    252 root      20   0    5492   2724   2540 S   0.0   0.1   0:00.01 agetty
+    283 syslog    20   0  220548   5844   4516 S   0.0   0.1   0:00.05 rsyslogd
