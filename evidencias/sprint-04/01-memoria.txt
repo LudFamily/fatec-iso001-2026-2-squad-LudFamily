@@ -1,0 +1,175 @@
+=== SPRINT 4 - EVIDÊNCIA DE MEMÓRIA ===
+
+Objetivo
+
+Registrar experimentos práticos realizados no ambiente Linux/WSL para
+observar o consumo de memória por processos, a redução da memória
+disponível e o comportamento da memória após o encerramento do processo.
+
+=== EXPERIMENTO 1 - CONSUMO CONTROLADO DE MEMÓRIA ===
+
+Estado inicial:
+
+Memória total: 3.8 GiB
+Memória usada: 1.1 GiB
+Memória livre: 2.5 GiB
+Memória disponível: 2.7 GiB
+Swap total: 1.0 GiB
+Swap utilizada: 0 B
+
+Comando utilizado:
+
+python3 -c 'a = bytearray(500 * 1024 * 1024); input("Pressione Enter para liberar a memória...")'
+
+Durante a execução do processo Python:
+
+Memória total: 3.8 GiB
+Memória usada: 1.6 GiB
+Memória livre: 2.0 GiB
+Memória disponível: 2.2 GiB
+Swap utilizada: 0 B
+
+Identificação do processo:
+
+PID: 12803
+Comando: python3
+%MEM: 13.1
+RSS: 521776 KiB
+
+Resultado observado:
+
+O processo Python aumentou o consumo de memória do sistema em
+aproximadamente 500 MiB.
+
+A utilização de memória passou de aproximadamente 1.1 GiB para
+1.6 GiB enquanto o processo permanecia em execução.
+
+O comando ps permitiu identificar o processo e observar seu consumo
+de memória por meio do valor de RSS.
+
+Após o encerramento do processo, a memória utilizada retornou para
+aproximadamente 1.1 GiB.
+
+=== EXPERIMENTO 2 - MAIOR PRESSÃO DE MEMÓRIA ===
+
+Estado antes do experimento:
+
+Memória total: 3.8 GiB
+Memória usada: 1.1 GiB
+Memória disponível: 2.7 GiB
+Swap utilizada: 0 B
+
+Comando utilizado:
+
+python3 -c 'a = bytearray(2 * 1024 * 1024 * 1024); input("Pressione Enter para liberar...")'
+
+Durante a execução do processo Python:
+
+Memória total: 3.8 GiB
+Memória usada: 3.2 GiB
+Memória livre: 488 MiB
+Memória disponível: 642 MiB
+Swap utilizada: 0 B
+
+Identificação do processo:
+
+PID: 15143
+Comando: python3
+%MEM: 53.1
+RSS: 2106864 KiB
+
+Resultado observado:
+
+O processo Python passou a utilizar aproximadamente 2 GiB de memória
+residente.
+
+A memória utilizada aumentou de aproximadamente 1.1 GiB para 3.2 GiB.
+
+A memória disponível foi reduzida de aproximadamente 2.7 GiB para
+642 MiB.
+
+Mesmo com a redução significativa da memória disponível, a swap
+permaneceu sem utilização durante o experimento.
+
+Após o encerramento do processo, a memória utilizada retornou para
+aproximadamente 1.1 GiB e a memória disponível voltou para
+aproximadamente 2.6 GiB.
+
+=== CONCLUSÃO ===
+
+Os experimentos demonstraram que processos em execução utilizam
+memória RAM e que o aumento do consumo de um processo reduz a
+memória disponível para os demais processos.
+
+Também foi observado que a utilização de memória pode ser acompanhada
+por meio de ferramentas do sistema operacional, como free e ps.
+
+O experimento de maior consumo demonstrou uma situação de maior
+pressão sobre a memória, sem utilização de swap nas condições
+observadas.
+
+Na LudCommerce, um aumento de demanda pode aumentar a quantidade de
+dados e processos mantidos em memória. O acompanhamento do consumo
+de memória pode auxiliar na identificação de situações de pressão
+de memória e possíveis gargalos de desempenho.
+
+=== EXPERIMENTO 3 - COMPETIÇÃO POR CPU ===
+
+Objetivo:
+
+Observar a competição entre processos concorrentes pelo uso da CPU e
+comparar o comportamento da CPU com o consumo de memória.
+
+Comandos utilizados:
+
+yes > /dev/null &
+yes > /dev/null &
+
+A coleta foi realizada utilizando:
+
+top -b -n 1 | head -20
+
+Resultado observado:
+
+Durante a coleta, os dois processos `yes` estavam em execução e
+apresentaram aproximadamente 100% de utilização individual da CPU.
+
+Processos observados:
+
+PID 18946
+%CPU: 100.0
+Estado: R
+Comando: yes
+
+PID 18955
+%CPU: 100.0
+Estado: R
+Comando: yes
+
+O sistema apresentou a seguinte utilização de CPU:
+
+%Cpu(s): 32.8 us, 19.0 sy, 41.4 id, 5.2 wa
+
+O ambiente possuía quatro CPUs disponíveis. Os dois processos
+concorrentes pressionaram a CPU, mas ainda havia capacidade ociosa
+no sistema.
+
+Durante o mesmo experimento, a memória permaneceu com aproximadamente:
+
+Memória total: 3.8 GiB
+Memória usada: 1.1 GiB
+Memória disponível: 2.7 GiB
+Swap utilizada: 0 B
+
+Resultado:
+
+O experimento demonstrou que diferentes recursos do sistema operacional
+podem apresentar níveis diferentes de utilização.
+
+Neste caso, houve competição significativa pela CPU, enquanto a memória
+permaneceu com quantidade considerável de recursos disponíveis.
+
+Isso demonstra que CPU e memória podem representar gargalos diferentes
+e devem ser observadas separadamente durante a análise de desempenho.
+
+Após a coleta, os processos `yes` foram encerrados para liberar a CPU.

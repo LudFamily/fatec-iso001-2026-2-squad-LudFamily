@@ -497,6 +497,54 @@ O consumo excessivo de memória pode provocar:
 
 Por esse motivo, a utilização de memória deve ser monitorada e considerada nas decisões de operação.
 
+#### 10.3.1 Limites e pressão de memória
+
+A memória RAM é um recurso finito administrado pelo sistema operacional.
+Os processos da LudCommerce utilizam memória durante sua execução, e o
+aumento da quantidade de processos ou de dados mantidos em memória pode
+reduzir a quantidade de memória disponível.
+
+Durante os experimentos realizados no ambiente Linux, foi observado o
+aumento do consumo de memória após a execução de processos Python que
+reservaram aproximadamente 500 MiB e 2 GiB.
+
+No experimento de aproximadamente 500 MiB, a memória utilizada passou de
+1.1 GiB para 1.6 GiB. Após o encerramento do processo, o consumo retornou
+para aproximadamente 1.1 GiB.
+
+No experimento de aproximadamente 2 GiB, a memória utilizada passou de
+1.1 GiB para 3.2 GiB, enquanto a memória disponível foi reduzida de
+aproximadamente 2.7 GiB para 642 MiB. Durante a coleta, a swap permaneceu
+sem utilização.
+
+Os experimentos demonstram que o aumento do consumo de um processo reduz
+a memória disponível para os demais processos. Em situações de demanda
+elevada, a memória pode se tornar um recurso limitante e contribuir para
+a degradação do desempenho da aplicação.
+
+O acompanhamento de métricas como memória utilizada, memória disponível,
+consumo por processo e utilização de swap permite identificar situações
+de pressão de memória.
+
+Na LudCommerce, essas informações podem apoiar a identificação de
+gargalos e riscos operacionais relacionados ao crescimento da demanda.
+
+A relação pode ser representada da seguinte forma:
+
+```text
+Aumento de demanda
+        ↓
+Maior quantidade de trabalho
+        ↓
+Maior consumo de memória
+        ↓
+Redução da memória disponível
+        ↓
+Pressão sobre a memória
+        ↓
+Possível degradação de desempenho
+        ↓
+Identificação e ação operacional
 
 ### 10.4 Sistema de arquivos
 
