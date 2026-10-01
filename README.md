@@ -5,6 +5,13 @@ Projeto acadêmico desenvolvido para a disciplina **ISO001 – Sistemas Operacio
 A LudCommerce representa uma **loja de hardware e periféricos com estoque e vendas online**, utilizada como cenário para relacionar problemas reais de operação empresarial com conceitos de Sistemas Operacionais.
 
 ---
+## Tecnologias utilizadas:
+
+- Linux
+- Git e Github
+- Mermaid
+- Node.js
+- npm
 
 ## 1. Sobre o projeto
 
