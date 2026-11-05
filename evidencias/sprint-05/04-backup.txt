@@ -71,3 +71,26 @@ A verificação de integridade ajuda a identificar problemas
 nas cópias de segurança antes que uma recuperação seja necessária.
 
 Observação: os dados utilizados neste laboratório são fictícios.
+
+=== VALIDAÇÃO COMPLEMENTAR DE INTEGRIDADE ===
+
+Foram comparados os hashes SHA-256 dos arquivos originais
+com duas cópias recuperadas:
+
+1. laboratorio/lucasesantos29/simulacao-recuperacao/
+2. laboratorio/lucasesantos29/backup-verificacao/
+
+Resultados:
+
+pedidos.txt:
+f0c8dffa5649f373f399bc723ae560697f9834b705109edc13e2f1ff5cbf6066
+
+produtos.txt:
+09f959bcdaaf58bf66ac59a0cab0eb918b63a82696f1096424783336043e1f8a
+
+Os hashes dos arquivos originais e das duas cópias recuperadas
+foram idênticos.
+
+Conclusão:
+A comparação SHA-256 confirmou que os arquivos recuperados
+preservaram integralmente o conteúdo original.

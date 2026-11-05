@@ -160,3 +160,18 @@ continuidade operacional da LudCommerce.
 - Armazenamento e backup.
 - Recuperação de arquivos.
 - Segurança e disponibilidade.
+
+---
+
+## Definition of Done (DoD)
+
+- [x] Backlog da Sprint documentado.
+- [x] Experimentos de filesystem realizados e registrados.
+- [ ] Testes práticos de acesso permitido e negado concluídos.
+- [x] Logs simulados analisados e documentados.
+- [x] Backup criado e conteúdo verificado.
+- [x] Recuperação de arquivos demonstrada.
+- [x] Integridade dos arquivos recuperados validada por SHA-256.
+- [x] Resultados relacionados à arquitetura da LudCommerce.
+- [x] Evidências organizadas no repositório.
+- [ ] Alterações versionadas e revisadas por Pull Request.
