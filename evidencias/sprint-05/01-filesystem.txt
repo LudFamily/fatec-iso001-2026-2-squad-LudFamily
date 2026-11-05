@@ -1,0 +1,80 @@
+=== SPRINT 5 - EVIDÊNCIA 01: FILESYSTEM ===
+
+Objetivo:
+Analisar a organização dos arquivos e o armazenamento do
+ambiente Linux utilizado no desenvolvimento da LudCommerce.
+
+=== DIRETÓRIO DO PROJETO ===
+
+/home/lucasesantos29/fatec-iso001-2026-2-squad-LudFamily
+
+=== ESTRUTURA DE DIRETÓRIOS ===
+
+backlog/
+diagrams/
+docs/
+evidencias/
+laboratorio/
+
+=== ESPAÇO EM DISCO ===
+
+Filesystem: /dev/sdd
+Capacidade: 1007G
+Utilizado: 2.1G
+Disponível: 954G
+Utilização: 1%
+
+=== TIPO DE FILESYSTEM ===
+
+Tipo: ext4
+Dispositivo: /dev/sdd
+Ponto de montagem: /
+
+Opções:
+rw,relatime,discard,errors=remount-ro,data=ordered
+
+=== OCUPAÇÃO DOS DIRETÓRIOS ===
+
+laboratorio/: 12K
+backlog/: 28K
+evidencias/: 56K
+docs/: 88K
+diagrams/: 132K
+.git/: 616K
+
+Tamanho total do projeto: aproximadamente 1.1M
+
+=== MAIORES ARQUIVOS ===
+
+package-lock.json: 91187 bytes
+diagrams/containers.png: 44404 bytes
+diagrams/deployment.png: 35380 bytes
+diagrams/contexto.png: 33975 bytes
+docs/03-arquitetura.md: 26095 bytes
+
+=== ANÁLISE ===
+
+O ambiente utiliza o sistema de arquivos EXT4, com aproximadamente
+1007 GB de capacidade total e 1% de utilização no momento da coleta.
+
+O projeto ocupa aproximadamente 1.1 MB, distribuídos entre
+documentação, diagramas, backlog, evidências e arquivos de laboratório.
+
+A análise demonstra a importância da organização do filesystem
+para armazenar os componentes da LudCommerce.
+
+Em um ambiente corporativo, o crescimento de logs, arquivos
+operacionais e backups pode aumentar o consumo de armazenamento.
+
+A falta de espaço pode comprometer operações de gravação,
+registros e disponibilidade dos serviços.
+
+=== RELAÇÃO COM A LUDCOMMERCE ===
+
+O filesystem é responsável por disponibilizar o armazenamento
+dos arquivos necessários à aplicação, documentos, registros
+operacionais e cópias de segurança.
+
+O monitoramento da ocupação permite antecipar riscos relacionados
+à falta de espaço e à continuidade da operação.
+

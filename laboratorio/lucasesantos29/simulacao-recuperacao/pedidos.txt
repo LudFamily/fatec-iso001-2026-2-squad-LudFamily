@@ -1,0 +1,1 @@
+Pedido: 1001 | Status: Pago | Valor: 250.00
