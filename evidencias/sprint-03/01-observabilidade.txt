@@ -48,3 +48,17 @@ MiB Swap:   1024.0 total,   1024.0 free,      0.0 used.   2755.4 avail Mem
     216 root      20   0   18556   9464   8160 S   0.0   0.2   0:00.12 systemd+
     252 root      20   0    5492   2724   2540 S   0.0   0.1   0:00.01 agetty
     283 syslog    20   0  220548   5844   4516 S   0.0   0.1   0:00.05 rsyslogd
+
+=== ANÁLISE DOS RESULTADOS ===
+
+A coleta apresentou 3,8 GiB de memória RAM total, com 2,7 GiB disponíveis e nenhuma utilização de swap.
+
+A CPU apresentou 65,8% de tempo ocioso e 10,5% de espera por operações de I/O na coleta realizada pelo top.
+
+Foram identificados 46 processos, sendo 1 em execução e 45 em espera, sem processos zumbis.
+
+O load average apresentou valores de 0,06, 1,78 e 2,10 para os períodos de 1, 5 e 15 minutos, respectivamente.
+
+No contexto da LudCommerce, o monitoramento desses indicadores pode auxiliar na identificação de situações de pressão sobre CPU, memória e operações de entrada e saída.
+
+Os resultados representam uma coleta pontual do ambiente Codespaces e não devem ser interpretados como métricas de produção.
