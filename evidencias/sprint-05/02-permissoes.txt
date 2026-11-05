@@ -1,0 +1,70 @@
+=== SPRINT 5 - EVIDÊNCIA 02: PERMISSÕES ===
+
+Objetivo:
+Analisar o controle de acesso a arquivos e diretórios no Linux,
+utilizando proprietário, grupo e outros usuários.
+
+=== IDENTIFICAÇÃO DO USUÁRIO ===
+
+Usuário: lucasesantos29
+UID: 1000
+Grupo principal: lucasesantos29
+Grupos adicionais: adm, cdrom, sudo, dip, plugdev, users
+
+=== PERMISSÕES DE ARQUIVOS ===
+
+Permissão 644:
+-rw-r--r--
+Proprietário: leitura e escrita
+Grupo: leitura
+Outros: leitura
+
+Permissão 600:
+-rw-------
+Proprietário: leitura e escrita
+Grupo: nenhum acesso
+Outros: nenhum acesso
+
+Permissão 640:
+-rw-r-----
+Proprietário: leitura e escrita
+Grupo: leitura
+Outros: nenhum acesso
+
+=== PERMISSÕES DE DIRETÓRIOS ===
+
+Permissão 755:
+drwxr-xr-x
+Proprietário: leitura, escrita e execução
+Grupo: leitura e execução
+Outros: leitura e execução
+
+Permissão 700:
+drwx------
+Proprietário: leitura, escrita e execução
+Grupo: nenhum acesso
+Outros: nenhum acesso
+
+=== ANÁLISE ===
+
+O Linux utiliza permissões para controlar o acesso aos arquivos
+e diretórios por meio de proprietário, grupo e outros usuários.
+
+O comando chmod permite modificar essas permissões.
+
+Nos arquivos, a leitura permite consultar o conteúdo e a escrita
+permite modificá-lo.
+
+Nos diretórios, a execução permite acessar e atravessar o diretório,
+enquanto a leitura permite listar seus nomes.
+
+A configuração adequada das permissões contribui para a segurança
+e para a aplicação do princípio do menor privilégio.
+
+=== RELAÇÃO COM A LUDCOMMERCE ===
+
+Na LudCommerce, permissões podem restringir o acesso a arquivos
+de configuração, dados operacionais, registros e backups.
+
+A aplicação de permissões adequadas reduz o risco de acesso,
+alteração ou exclusão não autorizada de informações.

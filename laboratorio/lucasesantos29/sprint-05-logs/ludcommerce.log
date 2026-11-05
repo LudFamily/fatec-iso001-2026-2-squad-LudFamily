@@ -1,0 +1,8 @@
+2026-11-05 10:00:00 INFO Pedido #1001 criado com sucesso
+2026-11-05 10:02:15 INFO Pagamento do pedido #1001 aprovado
+2026-11-05 10:05:30 WARN Estoque do produto #P205 abaixo do limite
+2026-11-05 10:08:42 ERROR Falha na comunicacao com o servico de pagamento
+2026-11-05 10:09:10 INFO Nova tentativa de comunicacao iniciada
+2026-11-05 10:09:45 INFO Comunicacao com o servico de pagamento restabelecida
+2026-11-05 10:12:00 ERROR Falha ao consultar o produto #P310
+2026-11-05 10:15:20 INFO Pedido #1002 criado com sucesso

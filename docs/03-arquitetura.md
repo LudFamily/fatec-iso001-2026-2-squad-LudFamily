@@ -559,6 +559,27 @@ O sistema operacional controla o acesso aos arquivos por meio de usuários, grup
 
 O espaço disponível também deve ser monitorado.
 
+#### Evidência prática — análise do filesystem
+
+Durante o laboratório Linux, foi identificado que o ambiente de desenvolvimento utiliza o filesystem EXT4.
+
+Resultados observados:
+
+- Dispositivo: `/dev/sdd`
+- Capacidade total: aproximadamente 1007 GB
+- Espaço utilizado: aproximadamente 2,1 GB
+- Espaço disponível: aproximadamente 954 GB
+- Utilização: 1%
+- Tamanho total do projeto: aproximadamente 1,1 MB
+
+A análise também identificou a organização dos diretórios do projeto, incluindo `backlog/`, `diagrams/`, `docs/`, `evidencias/` e `laboratorio/`.
+
+O experimento demonstrou como os comandos `df`, `du`, `findmnt` e `df -Th` permitem consultar a capacidade, a ocupação e o tipo de sistema de arquivos.
+
+**Aplicação na LudCommerce:** o armazenamento precisa ser acompanhado para evitar que o crescimento de arquivos, logs e backups comprometa novas gravações e a disponibilidade dos serviços.
+
+**Observação:** os valores apresentados correspondem ao ambiente de desenvolvimento Codespaces, não a uma infraestrutura de produção da LudCommerce.
+
 ### 10.5 Permissões
 
 Os recursos do servidor devem possuir permissões adequadas para impedir acessos indevidos.
@@ -568,6 +589,31 @@ Os processos devem possuir somente os privilégios necessários para realizar su
 A aplicação, o banco, os arquivos e os logs devem ser protegidos contra alterações ou acessos não autorizados.
 
 A arquitetura considera o princípio de menor privilégio como uma regra básica de segurança.
+
+#### Evidência prática — controle de permissões
+
+Durante o laboratório Linux, foi criado um arquivo de teste para demonstrar a alteração de permissões utilizando o comando `chmod`.
+
+Foram analisadas as seguintes configurações:
+
+| Permissão | Proprietário | Grupo | Outros |
+|---|---|---|---|
+| 644 | Leitura e escrita | Leitura | Leitura |
+| 600 | Leitura e escrita | Sem acesso | Sem acesso |
+| 640 | Leitura e escrita | Leitura | Sem acesso |
+
+Também foram realizados testes com permissões de diretórios:
+
+- `755`: proprietário com leitura, escrita e execução; grupo e outros com leitura e execução.
+- `700`: acesso completo somente ao proprietário.
+
+O experimento demonstrou que as permissões podem ser modificadas conforme a necessidade de proteção dos arquivos e diretórios.
+
+**Aplicação na LudCommerce:** arquivos de configuração, dados operacionais, logs e backups devem possuir permissões adequadas, limitando o acesso aos usuários e processos autorizados.
+
+O princípio do menor privilégio deve orientar a definição dessas permissões.
+
+**Observação:** os testes foram realizados em arquivos e diretórios isolados no ambiente Linux de desenvolvimento. Não foi realizado um teste efetivo de acesso por um segundo usuário.
 
 ### 10.6 Entrada e saída
 
@@ -618,6 +664,20 @@ O administrador, a equipe operacional e o cliente não devem possuir os mesmos p
 
 O controle de permissões também deve ser aplicado aos recursos do servidor, incluindo arquivos, diretórios, logs e demais recursos utilizados pela aplicação.
 
+### Evidência prática — aplicação de permissões
+
+O laboratório de permissões demonstrou que o Linux permite restringir o acesso a arquivos e diretórios por meio da definição de proprietário, grupo e outros usuários.
+
+Foram utilizados os comandos `id`, `groups`, `stat` e `chmod` para identificar usuários, grupos e modificar permissões.
+
+A configuração de permissões mais restritivas demonstrou como reduzir a exposição de arquivos a usuários não autorizados.
+
+**Decisão arquitetural:** na LudCommerce, os arquivos de configuração, registros operacionais e dados armazenados devem possuir controle de acesso compatível com sua finalidade.
+
+Os processos da aplicação também devem executar com privilégios limitados, evitando permissões administrativas desnecessárias.
+
+Essa abordagem contribui para reduzir os riscos de acesso indevido, alteração não autorizada e exposição de informações.
+
 ---
 
 ## 12. Observabilidade
@@ -647,6 +707,30 @@ Por exemplo, um aumento no tempo de resposta de pedidos pode estar relacionado a
 - indisponibilidade de serviço externo.
 
 Os registros devem conter informações suficientes para auxiliar na investigação dos problemas.
+
+### Evidência prática — criação e análise de logs
+
+Durante o laboratório Linux, foi criado um arquivo de log simulado para representar eventos operacionais da LudCommerce.
+
+Foram registrados eventos classificados como:
+
+- `INFO`: operações realizadas com sucesso.
+- `WARN`: situações que exigem atenção, como estoque abaixo do limite.
+- `ERROR`: falhas, como problemas de comunicação com o serviço de pagamento e consultas de produtos.
+
+Para investigar os registros, foram utilizados os seguintes comandos:
+
+- `grep "ERROR"`: localizar eventos de erro.
+- `grep "WARN"`: localizar avisos.
+- `grep -c "ERROR"`: contabilizar os registros de erro.
+
+O experimento identificou dois registros de erro e um registro de aviso.
+
+A análise demonstrou como os logs podem auxiliar na identificação de falhas, no acompanhamento de tentativas de recuperação e na investigação de incidentes.
+
+**Aplicação na LudCommerce:** os registros operacionais devem permitir acompanhar eventos relacionados a pedidos, estoque, pagamentos e consultas de produtos, contribuindo para o diagnóstico de problemas e a observabilidade dos serviços.
+
+**Observação:** os eventos utilizados foram simulados em laboratório e não representam registros reais de uma aplicação em produção.
 
 ---
 
@@ -679,6 +763,26 @@ Ela também envolve:
 
 A estratégia de backup deve considerar principalmente o Banco de Dados e os arquivos necessários para a operação da plataforma.
 
+### Evidência prática — backup e recuperação
+
+Durante o laboratório Linux, foram criados arquivos fictícios representando dados de produtos e pedidos da LudCommerce.
+
+O comando `tar` foi utilizado para criar um arquivo compactado de backup (`.tar.gz`), reunindo os arquivos do laboratório.
+
+Em seguida, foi realizada a verificação do conteúdo do pacote e a extração dos arquivos para um diretório separado.
+
+Para verificar a integridade, foi utilizado o comando `sha256sum`, comparando os hashes dos arquivos originais com os arquivos recuperados.
+
+Os resultados apresentaram hashes idênticos, indicando que o conteúdo foi preservado.
+
+Também foi realizada uma simulação de perda do arquivo `produtos.txt` em um diretório isolado. O arquivo foi restaurado a partir do backup e comparado com o original utilizando o comando `diff`, sem identificação de diferenças.
+
+**Aplicação na LudCommerce:** a estratégia de backup deve proteger informações importantes, como produtos, estoque e pedidos. Os procedimentos de recuperação precisam ser testados periodicamente para verificar se os dados podem ser restaurados corretamente.
+
+A integridade das cópias de segurança é fundamental para reduzir os impactos de falhas de armazenamento, exclusões acidentais e perda de dados.
+
+**Observação:** os testes foram realizados com dados fictícios em ambiente de desenvolvimento, não em uma infraestrutura de produção.
+
 ---
 
 ## 14. Riscos operacionais
@@ -696,8 +800,15 @@ Os principais riscos identificados para a arquitetura são:
 | Falta de espaço para logs | Pode impedir novas gravações e prejudicar diagnóstico | Filesystem e armazenamento |
 | Acesso não autorizado | Pode comprometer dados e operações | Usuários e permissões |
 | Falha de serviço externo | Pode afetar pagamento, fornecimento ou entrega | Rede e I/O |
+| Crescimento excessivo de logs | Pode provocar consumo elevado de armazenamento e comprometer novas gravações | Filesystem e armazenamento |
+| Permissões inadequadas | Podem permitir acesso, alteração ou exposição não autorizada de arquivos | Usuários e permissões |
+| Falha na execução do backup | Pode resultar na ausência de uma cópia de segurança atualizada | Armazenamento e processos |
+| Backup corrompido ou incompleto | Pode impedir a recuperação correta dos dados | Filesystem e integridade |
+| Falha na recuperação | Pode aumentar o tempo de indisponibilidade da plataforma | Backup, filesystem e disponibilidade |
+| Falta de espaço para backups | Pode impedir a criação de novas cópias de segurança | Filesystem e armazenamento |
 
 ---
+
 
 ## 15. Pontos críticos da arquitetura
 

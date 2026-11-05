@@ -1,0 +1,59 @@
+=== SPRINT 5 - EVIDÊNCIA 03: LOGS ===
+
+Objetivo:
+Simular registros de eventos de uma aplicação e utilizar comandos
+Linux para localizar erros e avisos.
+
+=== AMBIENTE ===
+
+Aplicação simulada: LudCommerce
+Arquivo: laboratorio/lucasesantos29/sprint-05-logs/ludcommerce.log
+
+=== EVENTOS REGISTRADOS ===
+
+- INFO: pedido criado com sucesso.
+- INFO: pagamento aprovado.
+- WARN: estoque abaixo do limite.
+- ERROR: falha na comunicação com o serviço de pagamento.
+- INFO: nova tentativa de comunicação.
+- INFO: comunicação restabelecida.
+- ERROR: falha ao consultar produto.
+
+=== COMANDOS UTILIZADOS ===
+
+Filtrar erros:
+grep "ERROR" ludcommerce.log
+
+Filtrar avisos:
+grep "WARN" ludcommerce.log
+
+Contar erros:
+grep -c "ERROR" ludcommerce.log
+
+=== RESULTADOS ===
+
+Foram identificados dois registros de erro (ERROR)
+e um registro de aviso (WARN).
+
+=== ANÁLISE ===
+
+O comando grep permite localizar eventos específicos em arquivos
+de log, facilitando a investigação de ocorrências.
+
+Os níveis INFO, WARN e ERROR representam diferentes tipos
+de eventos registrados pela aplicação.
+
+Os registros permitem acompanhar falhas, tentativas de recuperação
+e restabelecimento de serviços.
+
+=== RELAÇÃO COM A LUDCOMMERCE ===
+
+Os logs podem auxiliar na investigação de problemas relacionados
+a pedidos, estoque, pagamentos e consultas de produtos.
+
+Em um ambiente corporativo, o armazenamento e a análise dos logs
+contribuem para a observabilidade, a segurança e a disponibilidade
+dos serviços.
+
+Observação: os eventos registrados neste laboratório são simulados,
+não representam ocorrências reais de uma aplicação em produção.

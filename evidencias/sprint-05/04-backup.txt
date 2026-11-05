@@ -1,0 +1,73 @@
+=== SPRINT 5 - EVIDÊNCIA 04: BACKUP ===
+
+Objetivo:
+Criar uma cópia de segurança de arquivos representativos da
+LudCommerce e verificar sua integridade.
+
+=== DADOS UTILIZADOS ===
+
+Diretório: laboratorio/lucasesantos29/dados-backup/
+
+Arquivos:
+- produtos.txt
+- pedidos.txt
+
+Dados fictícios utilizados para representar informações
+de produtos, estoque e pedidos.
+
+=== CRIAÇÃO DO BACKUP ===
+
+Comando:
+tar -czvf laboratorio/lucasesantos29/backup-ludcommerce.tar.gz laboratorio/lucasesantos29/dados-backup/
+
+Arquivo gerado:
+backup-ludcommerce.tar.gz
+
+Tamanho observado: 278 bytes.
+
+=== VERIFICAÇÃO DO CONTEÚDO ===
+
+Comando:
+tar -tzvf laboratorio/lucasesantos29/backup-ludcommerce.tar.gz
+
+Resultado:
+- produtos.txt
+- pedidos.txt
+
+=== RECUPERAÇÃO PARA VERIFICAÇÃO ===
+
+O backup foi extraído em um diretório separado,
+preservando os arquivos originais.
+
+=== VERIFICAÇÃO DE INTEGRIDADE ===
+
+Ferramenta utilizada: sha256sum
+
+Resultado:
+Os hashes SHA-256 dos arquivos originais e recuperados
+foram idênticos.
+
+Arquivos verificados:
+- pedidos.txt
+- produtos.txt
+
+=== ANÁLISE ===
+
+O comando tar permite agrupar e compactar arquivos em uma
+cópia de segurança.
+
+A extração permite recuperar os arquivos armazenados no pacote.
+
+O SHA-256 permite comparar o conteúdo original com o recuperado.
+Hashes idênticos indicam que os arquivos mantiveram seu conteúdo.
+
+=== RELAÇÃO COM A LUDCOMMERCE ===
+
+A realização periódica de backups é importante para proteger
+dados de produtos, estoque, pedidos e demais informações
+operacionais.
+
+A verificação de integridade ajuda a identificar problemas
+nas cópias de segurança antes que uma recuperação seja necessária.
+
+Observação: os dados utilizados neste laboratório são fictícios.

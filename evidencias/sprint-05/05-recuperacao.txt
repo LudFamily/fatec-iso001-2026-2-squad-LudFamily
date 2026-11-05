@@ -1,0 +1,54 @@
+=== SPRINT 5 - EVIDÊNCIA 05: RECUPERAÇÃO ===
+
+Objetivo:
+Simular a perda de um arquivo e demonstrar sua recuperação
+por meio de uma cópia de segurança.
+
+=== SIMULAÇÃO ===
+
+Foi criado um diretório isolado:
+laboratorio/lucasesantos29/simulacao-recuperacao/
+
+Os arquivos pedidos.txt e produtos.txt foram copiados
+para esse diretório.
+
+Em seguida, o arquivo produtos.txt foi removido da cópia
+de trabalho, simulando uma situação de perda de dados.
+
+=== RESTAURAÇÃO ===
+
+O arquivo produtos.txt foi recuperado a partir do backup:
+
+laboratorio/lucasesantos29/backup-ludcommerce.tar.gz
+
+A extração foi realizada com o comando tar.
+
+=== VALIDAÇÃO ===
+
+O arquivo recuperado foi consultado com cat.
+
+O comando diff foi utilizado para comparar o arquivo
+recuperado com o original.
+
+Resultado:
+Nenhuma diferença foi identificada.
+
+=== ANÁLISE ===
+
+A simulação demonstrou que um arquivo removido pode ser
+recuperado a partir de uma cópia de segurança válida.
+
+A comparação com o arquivo original permitiu verificar
+se o conteúdo foi preservado durante a recuperação.
+
+=== RELAÇÃO COM A LUDCOMMERCE ===
+
+Uma estratégia de backup e recuperação é importante para
+reduzir os impactos de exclusões acidentais, falhas de
+armazenamento e indisponibilidade de arquivos.
+
+A recuperação deve ser testada periodicamente para verificar
+se os dados podem ser restaurados corretamente.
+
+Observação: a simulação utilizou dados fictícios e um diretório
+isolado, sem remover os arquivos originais do projeto.
