@@ -202,3 +202,7 @@ Nas próximas Sprints serão aprofundados temas relacionados a:
 ## 10. Controle de versão
 
 Esta documentação faz parte do repositório oficial do projeto LudCommerce e deve ser atualizada conforme novas evidências e decisões forem produzidas durante o desenvolvimento do projeto.
+
+Todos os artefatos relacionados à Sprint 2 estão versionados no Git, permitindo acompanhar o histórico de alterações, revisar as entregas e manter a rastreabilidade das decisões técnicas.
+
+As próximas atualizações deverão preservar a relação entre os requisitos, a arquitetura, os diagramas, os processos e as evidências práticas das Sprints seguintes.
