@@ -276,6 +276,127 @@ Diretório `evidencias/sprint-02/`.
 
 ---
 
+## S2-09 — Identificar processos críticos
+
+**Descrição:**
+
+Identificar os processos essenciais para o funcionamento da LudCommerce e avaliar suas dependências e impactos em caso de falha.
+
+**Responsável:** Lucas Eugenio
+
+**Prioridade:** Alta
+
+### Critérios de aceite
+
+- [X] Processo da aplicação identificado como crítico.
+- [X] Banco de dados identificado como serviço essencial.
+- [X] Controle de estoque identificado como processo crítico.
+- [X] Comunicação com pagamento identificada como dependência crítica.
+- [X] Impactos da falha dos processos documentados.
+
+### Evidência esperada
+
+`docs/04-processos.md` — seção 4.
+
+---
+
+## S2-10 — Definir estratégia de Health Checks
+
+**Descrição:**
+
+Definir mecanismos para verificar a disponibilidade e a condição operacional dos principais serviços da LudCommerce.
+
+**Responsável:** Lucas Eugenio
+
+**Prioridade:** Alta
+
+### Critérios de aceite
+
+- [X] Health checks da aplicação considerados.
+- [X] Verificação do banco de dados considerada.
+- [X] Verificação de dependências externas considerada.
+- [X] Condições de serviço saudável e não saudável documentadas.
+- [X] Relação entre monitoramento e disponibilidade explicada.
+
+### Evidência esperada
+
+`docs/04-processos.md` — seção 5.
+
+---
+
+## S2-11 — Definir política de reinicialização e recuperação
+
+**Descrição:**
+
+Definir como os serviços deverão reagir a falhas e quais estratégias poderão ser utilizadas para sua recuperação.
+
+**Responsável:** Lucas Eugenio
+
+**Prioridade:** Alta
+
+### Critérios de aceite
+
+- [X] Política de reinicialização documentada.
+- [X] Comportamento esperado após falhas definido.
+- [X] Dependências entre serviços consideradas durante a recuperação.
+- [X] Riscos de reinicializações repetidas considerados.
+- [X] Relação com disponibilidade documentada.
+
+### Evidência esperada
+
+`docs/04-processos.md` — seção 6.
+
+---
+
+## S2-12 — Classificar workloads e consumo de recursos
+
+**Descrição:**
+
+Classificar os principais tipos de carga de trabalho da LudCommerce conforme o consumo de recursos computacionais.
+
+**Responsável:** Lucas Eugenio
+
+**Prioridade:** Média
+
+### Critérios de aceite
+
+- [X] Workloads dependentes de CPU identificados.
+- [X] Workloads relacionados à memória identificados.
+- [X] Workloads dependentes de I/O identificados.
+- [X] Workloads relacionados à rede identificados.
+- [X] Relação entre consumo de recursos e desempenho documentada.
+
+### Evidência esperada
+
+`docs/04-processos.md` — seção 7.
+
+---
+
+## S2-13 — Definir requisitos mínimos de logs
+
+**Descrição:**
+
+Identificar os eventos operacionais que precisam ser registrados para permitir o acompanhamento e a investigação de falhas.
+
+**Responsável:** Lucas Eugenio
+
+**Prioridade:** Média
+
+### Critérios de aceite
+
+- [X] Eventos de inicialização e encerramento considerados.
+- [X] Erros operacionais considerados.
+- [X] Falhas de comunicação com serviços externos consideradas.
+- [X] Eventos relacionados a pedidos considerados.
+- [X] Informações mínimas de rastreabilidade definidas.
+- [X] Relação entre logs e observabilidade documentada.
+
+### Evidência esperada
+
+`docs/04-processos.md` — seção 8.
+
+---
+
 # Definition of Done
 
 Uma tarefa da Sprint será considerada concluída quando:
