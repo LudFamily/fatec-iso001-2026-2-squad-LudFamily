@@ -1,0 +1,76 @@
+# Sprint 3 — Evidência de Escalonamento de Processos
+
+**Experimento:** concorrência e prioridade de processos  
+**Ambiente:** Linux / Codespaces
+
+## 1. Objetivo
+
+Observar a competição entre processos pelo uso da CPU e analisar a influência da prioridade relativa no escalonamento.
+
+## 2. Comandos executados
+
+Geração de carga de CPU:
+
+```bash
+yes > /dev/null &
+```
+
+Execução com prioridade relativa menor:
+
+```bash
+nice -n 10 yes > /dev/null &
+```
+
+Inspeção dos processos:
+
+```bash
+ps -eo pid,stat,ni,%cpu,%mem,comm --sort=-%cpu | grep '[y]es'
+```
+
+Monitoramento:
+
+```bash
+top
+```
+
+Alteração da prioridade de um processo em execução:
+
+```bash
+renice 10 -p 3121
+```
+
+Verificação posterior:
+
+```bash
+ps -p 3121 -o pid,stat,ni,%cpu,comm
+```
+
+Encerramento dos processos de teste:
+
+```bash
+pkill yes
+```
+
+## 3. Resultados e observações
+
+O histórico do terminal confirma a execução dos comandos para gerar processos concorrentes, atribuir diferentes prioridades relativas e observar o consumo de CPU.
+
+Foram utilizadas execuções com `NI=0` e `NI=10`, permitindo comparar processos com prioridades relativas distintas.
+
+Também foi executado o comando `renice` para alterar a prioridade de um processo existente.
+
+Os resultados numéricos das consultas não foram preservados no histórico disponível. Portanto, não são apresentados percentuais específicos de utilização da CPU nem confirmação independente do resultado da alteração realizada pelo `renice`.
+
+## 4. Relação com a LudCommerce
+
+Em períodos de maior demanda, diferentes processos da LudCommerce podem disputar os recursos de processamento.
+
+O escalonador do sistema operacional administra essa concorrência, considerando as prioridades relativas e as condições de execução.
+
+A análise de prioridade é relevante para compreender como processos de diferentes componentes podem compartilhar a CPU.
+
+## 5. Conclusão
+
+O experimento permitiu praticar a geração de carga de CPU, a observação de processos concorrentes e a alteração de prioridade relativa por meio de `nice` e `renice`.
+
+O valor de `nice` influencia a prioridade relativa do processo, mas não determina uma porcentagem fixa de utilização da CPU. O comportamento observado também depende dos processos concorrentes e dos recursos disponíveis no ambiente.

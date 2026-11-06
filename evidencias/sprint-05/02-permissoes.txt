@@ -68,3 +68,28 @@ de configuração, dados operacionais, registros e backups.
 
 A aplicação de permissões adequadas reduz o risco de acesso,
 alteração ou exclusão não autorizada de informações.
+
+=== TESTE PRÁTICO DE ACESSO ===
+
+Arquivo utilizado:
+laboratorio/permissoes/arquivo-teste.txt
+
+Permissão aplicada: 600 (-rw-------)
+
+Acesso permitido:
+O usuário proprietário lucasesantos29 conseguiu
+consultar o conteúdo do arquivo utilizando o comando cat.
+
+Acesso negado:
+Foi identificada a existência do usuário nobody (UID 65534).
+Entretanto, a tentativa de executar a leitura com outro usuário
+não pôde ser concluída.
+
+O ambiente GitHub Codespaces bloqueou a troca de identidade
+por falta de privilégios administrativos. Os comandos sudo,
+runuser e setpriv não permitiram realizar o teste.
+
+Conclusão:
+A configuração 600 demonstra que somente o proprietário
+possui permissões de leitura e escrita. A validação prática
+com outro usuário ficou limitada pelas permissões do ambiente.
