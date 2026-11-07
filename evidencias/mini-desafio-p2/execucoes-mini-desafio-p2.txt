@@ -1,0 +1,40 @@
+
+--- SEM LOCK | execução 1 ---
+P1: leu 20; solicita 10
+P3: leu 20; solicita 15
+P1: reserva CONFIRMADA; saldo gravado=10
+P3: reserva CONFIRMADA; saldo gravado=5
+P4: reposição de 20; saldo observado=25
+Reservas confirmadas: [('P1', 10), ('P3', 15)]
+Total reservado=25; saldo final observado=25; saldo esperado=15
+Invariante preservada? NÃO
+
+--- SEM LOCK | execução 2 ---
+P1: leu 20; solicita 10
+P3: leu 20; solicita 15
+P3: reserva CONFIRMADA; saldo gravado=5
+P1: reserva CONFIRMADA; saldo gravado=10
+P4: reposição de 20; saldo observado=30
+Reservas confirmadas: [('P3', 15), ('P1', 10)]
+Total reservado=25; saldo final observado=30; saldo esperado=15
+Invariante preservada? NÃO
+
+--- COM LOCK | execução 1 ---
+P1: entrou na região protegida; saldo=20; solicita 10
+P1: reserva CONFIRMADA; saldo=10
+P3: entrou na região protegida; saldo=10; solicita 15
+P3: reserva RECUSADA; saldo insuficiente=10
+P4: reposição de 20 protegida pelo Lock; saldo=30
+Reservas confirmadas: [('P1', 10)]
+Total reservado=10; saldo final=30; saldo esperado=30
+Invariante preservada? SIM
+
+--- COM LOCK | execução 2 ---
+P1: entrou na região protegida; saldo=20; solicita 10
+P1: reserva CONFIRMADA; saldo=10
+P3: entrou na região protegida; saldo=10; solicita 15
+P3: reserva RECUSADA; saldo insuficiente=10
+P4: reposição de 20 protegida pelo Lock; saldo=30
+Reservas confirmadas: [('P1', 10)]
+Total reservado=10; saldo final=30; saldo esperado=30
+Invariante preservada? SIM
