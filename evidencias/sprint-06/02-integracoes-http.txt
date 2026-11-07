@@ -1,0 +1,21 @@
+TESTE DE INTEGRAÇÃO HTTP - SPRINT 6
+
+Comando executado:
+curl -i --max-time 10 https://httpbin.org/status/503
+
+Resultado:
+HTTP/2 503 - Service Unavailable
+
+Análise:
+A conexão com o serviço externo foi estabelecida e o servidor
+retornou uma resposta HTTP 503.
+
+O código 503 representa indisponibilidade temporária do serviço.
+Em uma aplicação como a LudCommerce, uma situação semelhante
+poderia ocorrer durante uma integração com um serviço externo,
+como um gateway de pagamento.
+
+Ponto de atenção:
+A aplicação deve tratar respostas de indisponibilidade,
+evitando considerar uma operação externa como concluída
+quando o serviço não conseguiu atendê-la.

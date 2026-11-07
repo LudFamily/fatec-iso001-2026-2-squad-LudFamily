@@ -1,0 +1,17 @@
+TESTE DE FALHA DE COMUNICAÇÃO DE REDE
+
+Comando executado:
+ping -c 4 192.0.2.1
+
+Resultado:
+4 pacotes transmitidos, 0 recebidos.
+100% de perda de pacotes.
+
+Análise:
+O teste simulou a tentativa de comunicação com um endereço
+inalcançável. A ausência de respostas demonstra uma falha
+de conectividade com o destino testado.
+
+Observação:
+O endereço 192.0.2.1 pertence a uma faixa reservada para
+documentação e exemplos.

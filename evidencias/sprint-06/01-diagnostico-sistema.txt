@@ -1,0 +1,160 @@
+]633;E;echo "SPRINT 6 - EVIDENCIAS DE E/S, REDE E DISPOSITIVOS";75781f2f-5690-464f-af9b-2fd6cd639a57]633;CSPRINT 6 - EVIDENCIAS DE E/S, REDE E DISPOSITIVOS
+Data: Sat Nov  7 13:39:58 UTC 2026
+
+===== ARMAZENAMENTO =====
+NAME    MAJ:MIN RM   SIZE RO TYPE MOUNTPOINTS
+loop0     7:0    0    74M  1 loop
+loop1     7:1    0 115.3M  1 loop
+loop2     7:2    0  50.1M  1 loop
+loop3     7:3    0   257G  0 loop
+loop4     7:4    0    32G  0 loop /var/lib/docker
+                                  /home/vscode/.minikube
+                                  /workspaces/.codespaces/.persistedshare
+                                  /var/lib/containerd
+                                  /etc/hosts
+                                  /etc/hostname
+                                  /etc/resolv.conf
+                                  /workspaces
+loop5     7:5    0   500M  0 loop
+sda       8:0    0    30G  0 disk
+├─sda1    8:1    0  29.9G  0 part /workspaces/.codespaces/shared
+│                                 /.codespaces/bin
+│                                 /vscode
+│                                 /usr/sbin/docker-init
+├─sda14   8:14   0     4M  0 part
+└─sda15   8:15   0   106M  0 part
+sdb       8:16   0   512G  0 disk
+└─sdb1    8:17   0   512G  0 part
+sdc       8:32   0    45G  0 disk
+└─sdc1    8:33   0    45G  0 part /tmp
+sr0      11:0    1   628K  1 rom
+Filesystem      Size  Used Avail Use% Mounted on
+overlay          32G   14G   17G  45% /
+tmpfs            64M     0   64M   0% /dev
+shm              64M     0   64M   0% /dev/shm
+/dev/root        29G   16G   14G  55% /vscode
+/dev/sdc1        44G  2.5G   40G   6% /tmp
+/dev/loop4       32G   14G   17G  45% /workspaces
+
+===== MEMORIA =====
+               total        used        free      shared  buff/cache   available
+Mem:           7.8Gi       3.0Gi       350Mi        65Mi       4.8Gi       4.7Gi
+Swap:             0B          0B          0B
+
+===== REDE =====
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 7c:1e:52:a6:d0:3f brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.204/16 metric 100 brd 10.0.255.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::7e1e:52ff:fea6:d03f/64 scope link
+       valid_lft forever preferred_lft forever
+3: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default
+    link/ether 02:42:46:b8:94:12 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+default via 10.0.0.1 dev eth0 proto dhcp src 10.0.2.204 metric 100
+10.0.0.0/16 dev eth0 proto kernel scope link src 10.0.2.204 metric 100
+10.0.0.1 dev eth0 proto dhcp scope link src 10.0.2.204 metric 100
+168.63.129.16 via 10.0.0.1 dev eth0 proto dhcp src 10.0.2.204 metric 100
+169.254.169.254 via 10.0.0.1 dev eth0 proto dhcp src 10.0.2.204 metric 100
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
+Netid State  Recv-Q Send-Q   Local Address:Port  Peer Address:PortProcess
+udp   UNCONN 0      0        127.0.0.53%lo:53         0.0.0.0:*
+udp   UNCONN 0      0      10.0.2.204%eth0:68         0.0.0.0:*
+tcp   LISTEN 0      4096         127.0.0.1:13005      0.0.0.0:*
+tcp   LISTEN 0      128            0.0.0.0:2222       0.0.0.0:*
+tcp   LISTEN 0      512          127.0.0.1:16636      0.0.0.0:*
+tcp   LISTEN 0      512          127.0.0.1:16635      0.0.0.0:*
+tcp   LISTEN 0      512          127.0.0.1:16634      0.0.0.0:*
+tcp   LISTEN 0      4096         127.0.0.1:12563      0.0.0.0:*
+tcp   LISTEN 0      4096     127.0.0.53%lo:53         0.0.0.0:*
+tcp   LISTEN 0      4096         127.0.0.1:39537      0.0.0.0:*
+tcp   LISTEN 0      511          127.0.0.1:39363      0.0.0.0:*
+tcp   LISTEN 0      511          127.0.0.1:36685      0.0.0.0:*
+tcp   LISTEN 0      128            0.0.0.0:2000       0.0.0.0:*
+tcp   LISTEN 0      4096         127.0.0.1:36185      0.0.0.0:*
+tcp   LISTEN 0      128               [::]:2222          [::]:*
+tcp   LISTEN 0      512              [::1]:16636         [::]:*
+tcp   LISTEN 0      512              [::1]:16635         [::]:*
+tcp   LISTEN 0      512              [::1]:16634         [::]:*
+tcp   LISTEN 0      128               [::]:2000          [::]:*
+
+===== DNS =====
+140.82.112.4    github.com
+
+===== TESTE HTTP =====
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0HTTP/2 200
+date: Sat, 07 Nov 2026 13:39:52 GMT
+content-type: text/html; charset=utf-8
+vary: X-PJAX, X-PJAX-Container, Turbo-Visit, Turbo-Frame, X-Requested-With, X-GitHub-Client-Version, Accept-Language, Sec-Fetch-Site,Accept-Encoding, Accept, X-Requested-With
+content-language: en-US
+etag: W/"ab4bbab3cbb1985c4b8d020ecaca56ef"
+cache-control: max-age=0, private, must-revalidate
+strict-transport-security: max-age=31536000; includeSubdomains; preload
+x-frame-options: deny
+x-content-type-options: nosniff
+x-xss-protection: 0
+referrer-policy: origin-when-cross-origin, strict-origin-when-cross-origin
+content-security-policy: default-src 'none'; base-uri 'self'; child-src github.githubassets.com github.com/assets-cdn/worker/ github.com/assets/ gist.github.com/assets-cdn/worker/; connect-src 'self' uploads.github.com www.githubstatus.com collector.github.com raw.githubusercontent.com api.github.com github-cloud.s3.amazonaws.com github-production-repository-file-5c1aeb.s3.amazonaws.com github-production-upload-manifest-file-7fdce7.s3.amazonaws.com github-production-user-asset-6210df.s3.amazonaws.com *.rel.tunnels.api.visualstudio.com wss://*.rel.tunnels.api.visualstudio.com github.githubassets.com objects-origin.githubusercontent.com copilot-proxy.githubusercontent.com proxy.individual.githubcopilot.com proxy.business.githubcopilot.com proxy.enterprise.githubcopilot.com *.actions.githubusercontent.com wss://*.actions.githubusercontent.com productionresultssa0.blob.core.windows.net productionresultssa1.blob.core.windows.net productionresultssa2.blob.core.windows.net productionresultssa3.blob.core.windows.net productionresultssa4.blob.core.windows.net productionresultssa5.blob.core.windows.net productionresultssa6.blob.core.windows.net productionresultssa7.blob.core.windows.net productionresultssa8.blob.core.windows.net productionresultssa9.blob.core.windows.net productionresultssa10.blob.core.windows.net productionresultssa11.blob.core.windows.net productionresultssa12.blob.core.windows.net productionresultssa13.blob.core.windows.net productionresultssa14.blob.core.windows.net productionresultssa15.blob.core.windows.net productionresultssa16.blob.core.windows.net productionresultssa17.blob.core.windows.net productionresultssa18.blob.core.windows.net productionresultssa19.blob.core.windows.net productionresultssa30.blob.core.windows.net productionresultssa31.blob.core.windows.net productionresultssa32.blob.core.windows.net github-production-repository-image-32fea6.s3.amazonaws.com github-production-release-asset-2e65be.s3.amazonaws.com insights.github.com wss://alive.github.com wss://alive-staging.github.com api.githubcopilot.com api.individual.githubcopilot.com api.business.githubcopilot.com api.enterprise.githubcopilot.com wss://production-copilot-host.webpubsub.azure.com wss://production-copilot-host-centralus.webpubsub.azure.com wss://production-copilot-host-centralus-02.webpubsub.azure.com wss://production-copilot-host-westus.webpubsub.azure.com wss://production-copilot-host-westus3.webpubsub.azure.com api.github.com/cmc_internal/api/ edge.fullstory.com rs.fullstory.com; font-src github.githubassets.com; form-action 'self' github.com gist.github.com copilot-workspace.githubnext.com objects-origin.githubusercontent.com; frame-ancestors 'none'; frame-src viewscreen.githubusercontent.com notebooks.githubusercontent.com www.youtube-nocookie.com; img-src 'self' data: blob: github.githubassets.com media.githubusercontent.com camo.githubusercontent.com identicons.github.com avatars.githubusercontent.com private-avatars.githubusercontent.com github-cloud.s3.amazonaws.com objects.githubusercontent.com release-assets.githubusercontent.com secured-user-images.githubusercontent.com user-images.githubusercontent.com private-user-images.githubusercontent.com opengraph.githubassets.com repository-images.githubusercontent.com marketplace-screenshots.githubusercontent.com copilotprodattachments.blob.core.windows.net/github-production-copilot-attachments/ github-production-user-asset-6210df.s3.amazonaws.com customer-stories-feed.gith  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+ub.com spotlights-feed.github.com explore-feed.github.com *.googleusercontent.com objects-origin.githubusercontent.com *.githubusercontent.com images.ctfassets.net/8aevphvgewt8/; manifest-src 'self'; media-src github.com user-images.githubusercontent.com secured-user-images.githubusercontent.com private-user-images.githubusercontent.com github-production-user-asset-6210df.s3.amazonaws.com gist.github.com github.githubassets.com assets.ctfassets.net/8aevphvgewt8/ videos.ctfassets.net/8aevphvgewt8/; script-src github.githubassets.com 'sha256-6AKuI+cDd1MoUL1u4eqrA9PXmnPAkOB4h7421hPUUm0='; style-src 'unsafe-inline' github.githubassets.com; upgrade-insecure-requests; worker-src github.githubassets.com github.com/assets-cdn/worker/ github.com/assets/ gist.github.com/assets-cdn/worker/
+server: github.com
+accept-ranges: bytes
+set-cookie: _gh_sess=LJhx0uHcVgGsXm1wvLkOfAIHA%2B%2Bh2P%2BqtCTXaL7koN%2BZrExDcNrmmoYqsDzinA2wnQ5RPN6SyJuRlg1YGqvLahJnlABFC5mgqQb1weTjBPWu7JD4wRAK1noKLfsdUe5N2WVTf8GnjZir06bPSP%2Furjz0vOXOd2ALyCH7YuVPpHD5eS3v0OO34zJwYaPXnClB%2FXlwIbaLKzvIfw3IS0pudUbLNfNiH8hXcEUfdHXPkWXikHOzd4zBKgDjRj47CBRIG%2FamHIASO5GVdyQa5NZDag%3D%3D--uV7NVIxSefdrcdzU--jFEny7EVKWdmIcV%2BIzMPsQ%3D%3D; path=/; HttpOnly; secure; SameSite=Lax
+set-cookie: _octo=GH1.1.416928772.1794058798; expires=Sun, 07 Nov 2027 13:39:58 GMT; domain=.github.com; path=/; secure; SameSite=Lax
+set-cookie: logged_in=no; expires=Sun, 07 Nov 2027 13:39:58 GMT; domain=.github.com; path=/; HttpOnly; secure; SameSite=Lax
+x-github-request-id: A429:EC580:17099B:1EF016:6AEF2A2E
+x-github-edge-region: iad
+
+
+===== DISPOSITIVOS =====
+total 0
+crw-r--r-- 1 root root     10, 235 Nov  7 12:31 autofs
+drwxr-xr-x 2 root root         120 Nov  7 12:31 bsg
+crw------- 1 root root     10, 234 Nov  7 12:31 btrfs-control
+lrwxrwxrwx 1 root root          11 Nov  7 12:31 core -> /proc/kcore
+crw------- 1 root root     10, 261 Nov  7 12:31 cpu_dma_latency
+crw------- 1 root root     10, 203 Nov  7 12:31 cuse
+drwxr-xr-x 2 root root          60 Nov  7 12:31 dma_heap
+drwxr-xr-x 2 root root          60 Nov  7 12:31 dri
+crw------- 1 root root     10, 258 Nov  7 12:31 ecryptfs
+crw-rw---- 1 root video    29,   0 Nov  7 12:31 fb0
+lrwxrwxrwx 1 root root          13 Nov  7 12:31 fd -> /proc/self/fd
+crw-rw-rw- 1 root root      1,   7 Nov  7 12:31 full
+crw-rw-rw- 1 root root     10, 229 Nov  7 12:31 fuse
+crw------- 1 root root     10, 228 Nov  7 12:31 hpet
+crw------- 1 root root     10, 183 Nov  7 12:31 hwrng
+drwxr-xr-x 2 root root         220 Nov  7 12:31 input
+crw-r--r-- 1 root root      1,  11 Nov  7 12:31 kmsg
+crw-rw---- 1 root     109  10, 232 Nov  7 12:31 kvm
+crw-rw---- 1 root disk     10, 237 Nov  7 12:31 loop-control
+brw-rw---- 1 root disk      7,   0 Nov  7 12:31 loop0
+brw-rw---- 1 root disk      7,   1 Nov  7 12:31 loop1
+brw-rw---- 1 root disk      7,   2 Nov  7 12:31 loop2
+brw-rw---- 1 root disk      7,   3 Nov  7 12:31 loop3
+brw-rw---- 1 root disk      7,   4 Nov  7 12:31 loop4
+brw-rw---- 1 root disk      7,   5 Nov  7 12:31 loop5
+brw-rw---- 1 root disk      7,   6 Nov  7 12:31 loop6
+brw-rw---- 1 root disk      7,   7 Nov  7 12:31 loop7
+drwxr-xr-x 2 root root          60 Nov  7 12:31 mapper
+crw------- 1 root root     10, 227 Nov  7 12:31 mcelog
+crw-r----- 1 root kmem      1,   1 Nov  7 12:31 mem
+drwxrwxrwt 2 root root          40 Nov  7 12:31 mqueue
+drwxr-xr-x 2 root root          60 Nov  7 12:31 net
+crw-rw-rw- 1 root root      1,   3 Nov  7 12:31 null
+crw------- 1 root root     10, 262 Nov  7 12:31 nvme-fabrics
+crw------- 1 root root     10, 144 Nov  7 12:31 nvram
+crw-r----- 1 root kmem      1,   4 Nov  7 12:31 port
+crw------- 1 root root    108,   0 Nov  7 12:31 ppp
+crw------- 1 root root     10,   1 Nov  7 12:31 psaux
+lrwxrwxrwx 1 root root           8 Nov  7 12:31 ptmx -> pts/ptmx
+
+===== KERNEL =====
+dmesg: read kernel buffer failed: Operation not permitted
