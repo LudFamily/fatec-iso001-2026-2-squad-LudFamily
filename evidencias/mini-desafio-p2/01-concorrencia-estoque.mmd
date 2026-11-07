@@ -1,0 +1,30 @@
+
+flowchart TD
+    A["Sistema de estoque<br/>Python"]
+
+    A --> P1["Thread P1<br/>Reserva 10 unidades"]
+    A --> P3["Thread P3<br/>Reserva 15 unidades"]
+    A --> P4["Thread P4<br/>Reposição de 20 unidades"]
+
+    P1 --> RC["Região crítica"]
+    P3 --> RC
+    P4 --> RC
+
+    RC --> LOCK["threading.Lock<br/>Controle de acesso"]
+
+    LOCK --> VER["Verificar estoque"]
+    VER --> DEC{"Estoque suficiente?"}
+
+    DEC -->|Sim| ATU["Atualizar quantidade"]
+    DEC -->|Não| NEG["Não confirmar reserva"]
+
+    ATU --> FIM["Liberar Lock"]
+    NEG --> FIM
+
+    FIM --> EST["Estoque compartilhado<br/>Atualizado com segurança"]
+
+    style A fill:#17364D,color:#fff
+    style RC fill:#E8B85A,color:#222
+    style LOCK fill:#267C9B,color:#fff
+    style EST fill:#27866E,color:#fff
+
