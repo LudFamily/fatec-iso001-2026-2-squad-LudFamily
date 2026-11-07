@@ -1,0 +1,21 @@
+flowchart LR
+    INI["Tempo 0"] --> P1A["P1<br/>0 até 2"]
+    P1A --> P2A["P2<br/>2 até 4"]
+    P2A --> P3A["P3<br/>4 até 6"]
+    P3A --> P1B["P1<br/>6 até 8"]
+    P1B --> P4A["P4<br/>8 até 10"]
+    P4A --> P2B["P2<br/>10 até 11"]
+    P2B --> P3B["P3<br/>11 até 13"]
+    P3B --> P1C["P1<br/>13 até 15"]
+    P1C --> FIM["Tempo 15"]
+
+    style INI fill:#444,color:#fff
+    style P1A fill:#287D9B,color:#fff
+    style P1B fill:#287D9B,color:#fff
+    style P1C fill:#287D9B,color:#fff
+    style P2A fill:#27866E,color:#fff
+    style P2B fill:#27866E,color:#fff
+    style P3A fill:#B17A35,color:#fff
+    style P3B fill:#B17A35,color:#fff
+    style P4A fill:#7656A5,color:#fff
+    style FIM fill:#444,color:#fff
